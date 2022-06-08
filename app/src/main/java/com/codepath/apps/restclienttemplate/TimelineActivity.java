@@ -98,16 +98,8 @@ public class TimelineActivity extends AppCompatActivity {
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                // TODO: code to refresh the list here
-
                 Log.i(TAG, "onRefresh called from SwipeRefreshLayout");
-
-//                Intent intent = getIntent();
-//                finish();
-//                startActivity(intent);
-
                 fetchTimelineAsync(0);
-//
                 swipeContainer.setRefreshing(false);
             }
         });
