@@ -55,6 +55,7 @@ public class ComposeActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.i("hi", "e");
                 tvCharCount.setText(String.valueOf(charSequence.length()) + "/" + String.valueOf(MAX_TWEET_LENGTH));
             }
 
