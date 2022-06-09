@@ -3,6 +3,7 @@ package com.codepath.apps.restclienttemplate;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -37,6 +38,9 @@ public class ComposeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // change entire background color
+        getWindow().getDecorView().setBackgroundColor(Color.parseColor("#161618"));
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
 
@@ -55,7 +59,6 @@ public class ComposeActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Log.i("hi", "e");
                 tvCharCount.setText(String.valueOf(charSequence.length()) + "/" + String.valueOf(MAX_TWEET_LENGTH));
             }
 

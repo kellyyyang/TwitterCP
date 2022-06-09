@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#161618"
     tools:context=".ComposeActivity">
 
     <EditText
@@ -21,6 +22,8 @@
         android:gravity="start|top"
         android:hint="What's happening?"
         android:inputType="textMultiLine"
+        android:textColor="#F9F6EE"
+        android:backgroundTint="#818181"
         android:minLines="5" />
 
     <Button
@@ -31,6 +34,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
+        android:backgroundTint="#1DA1F2"
+        android:textColor="#F9F6EE"
         android:text="@string/tweet" />
 
     <TextView
@@ -40,6 +45,7 @@
         android:layout_below="@+id/etCompose"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
+        android:textColor="#818181"
         android:text= "0/280" />
 
 </RelativeLayout>
