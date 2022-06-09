@@ -122,6 +122,7 @@ public class TimelineActivity extends AppCompatActivity {
                     Log.e(TAG, "Json exception", e);
                 }
                 adapter.addAll(tweets);
+                adapter.notifyDataSetChanged();
                 swipeContainer.setRefreshing(false);
             }
 
