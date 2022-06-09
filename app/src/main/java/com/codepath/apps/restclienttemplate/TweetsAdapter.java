@@ -1,5 +1,7 @@
 package com.codepath.apps.restclienttemplate;
 
+import static android.view.View.GONE;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,18 +72,25 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         ImageView ivProfileImage;
         TextView tvBody;
         TextView tvScreenName;
+        ImageView ivMedia; // TODO: maybe change??
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivProfileImage = itemView.findViewById((R.id.ivProfileImage));
-            tvBody = itemView.findViewById((R.id.tvBody));
-            tvScreenName = itemView.findViewById((R.id.tvScreenName));
+            ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
+            tvBody = itemView.findViewById(R.id.tvBody);
+            tvScreenName = itemView.findViewById(R.id.tvScreenName);
+            ivMedia = itemView.findViewById(R.id.ivMedia);
         }
 
         public void bind(Tweet tweet) {
             tvBody.setText(tweet.body);
             tvScreenName.setText(tweet.user.screenName);
             Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
+            if (tweet.tweet_url.equals("none")) {
+                ivMedia.setVisibility(GONE);
+            } else {
+                Glide.with(context).load(tweet.tweet_url).into(ivMedia);
+            }
         }
     }
 }
