@@ -6,25 +6,33 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp">
 
-    <ImageView
-        android:id="@+id/ivProfileImage"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvProfileImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:cardCornerRadius="25dp">
+
+        <ImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            tools:srcCompat="@tools:sample/avatars" />
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:layout_alignParentTop="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="0dp"
-        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_toEndOf="@+id/cvProfileImage"
+        android:textColor="#F9F6EE"
+        android:textStyle="bold"
         tools:text="TwitterCP" />
 
     <TextView
@@ -34,7 +42,8 @@
         android:layout_below="@+id/tvName"
         android:layout_marginStart="5dp"
         android:layout_marginTop="2dp"
-        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_toEndOf="@+id/cvProfileImage"
+        android:textColor="#F9F6EE"
         tools:text="This is my Tweet!" />
 
     <ImageView
@@ -45,7 +54,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
-        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_toEndOf="@id/cvProfileImage"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -55,6 +64,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/tvScreenName"
+        android:textColor="#818181"
         tools:text="Time Ago" />
 
     <TextView
@@ -63,6 +73,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_toEndOf="@+id/tvName"
+        android:textColor="#818181"
         tools:text="Screen Name" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ivMedia"
+        android:layout_marginTop="10dp"
+        android:background="#818181" />
 
 </RelativeLayout>
