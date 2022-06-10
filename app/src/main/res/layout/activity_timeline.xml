@@ -32,6 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="315dp"
         android:layout_marginTop="5dp"
-        android:text="Logout"
-        android:onClick="onLogoutButton" />
+        android:onClick="onLogoutButton"
+        android:text="Logout" />
 </RelativeLayout>

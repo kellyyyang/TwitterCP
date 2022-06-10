@@ -6,6 +6,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,11 +22,18 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
 
     Context context;
     List<Tweet> tweets;
+    ClickReply cr;
+
+    public interface ClickReply
+    {
+        public void onClickReply(String userName);
+    }
 
     // Pass in the context and list of Tweets
-    public TweetsAdapter(Context context, List<Tweet> tweets) {
+    public TweetsAdapter(Context context, List<Tweet> tweets, ClickReply cr) {
         this.context = context;
         this.tweets = tweets;
+        this.cr = cr;
     }
 
     // Clean all elements of the recycler
@@ -72,6 +80,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         TextView tvScreenName;
         ImageView ivMedia;
         TextView tvRelativeTime;
+        ImageButton btnReply;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -81,6 +90,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             ivMedia = itemView.findViewById(R.id.ivMedia);
             tvRelativeTime = itemView.findViewById(R.id.tvRelativeTime);
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
+            btnReply = itemView.findViewById(R.id.btnReply);
         }
 
         public void bind(Tweet tweet) {
@@ -89,6 +99,12 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvScreenName.setText("@" + tweet.user.screenName);
             Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
             tvRelativeTime.setText(tweet.time_ago);
+            btnReply.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    cr.onClickReply(tweet.user.screenName);
+                }
+            });
             if (tweet.tweet_url.equals("none")) {
                 ivMedia.setVisibility(GONE);
             } else {

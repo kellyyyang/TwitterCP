@@ -84,8 +84,16 @@ public class TimelineActivity extends AppCompatActivity {
         rvTweets = findViewById(R.id.rvTweets);
 
         // Initialize the list of tweets and adapter
+        TweetsAdapter.ClickReply cr = new TweetsAdapter.ClickReply() {
+            @Override
+            public void onClickReply(String userName) {
+                Intent intent = new Intent(TimelineActivity.this, ReplyActivity.class);
+                intent.putExtra("user", userName);
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        };
         tweets = new ArrayList<>();
-        adapter = new TweetsAdapter(this, tweets);
+        adapter = new TweetsAdapter(this, tweets, cr);
 
         // Recycler view setup; layout manager and the adapter
         rvTweets.setLayoutManager(new LinearLayoutManager(this));

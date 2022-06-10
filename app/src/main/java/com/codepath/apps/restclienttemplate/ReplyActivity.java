@@ -31,24 +31,28 @@ public class ReplyActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         // change entire background color
         getWindow().getDecorView().setBackgroundColor(Color.parseColor("#161618"));
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reply);
 
+        Intent i = getIntent();
+        String userName = i.getStringExtra("user");
+
         client = TwitterApp.getRestClient(this);
 
         etReplyText = findViewById(R.id.etReplyText);
         btnTweetReply = findViewById(R.id.btnTweetReply);
+        etReplyText.setText("@" + userName);
 
         // set click listener on button
         btnTweetReply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = getIntent();
-                String userName = "@" + Parcels.unwrap(i.getParcelableExtra("user")) + " ";
-                String tweetContent = userName + etReplyText.getText().toString();
+//                String userName = "@" + Parcels.unwrap(i.getParcelableExtra("user")) + " ";
+                String tweetContent = etReplyText.getText().toString();
                 if (tweetContent.isEmpty()) {
                     Toast.makeText(ReplyActivity.this, "Sorry, your reply cannot be empty.", Toast.LENGTH_LONG).show();
                     return;
