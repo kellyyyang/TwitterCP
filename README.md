@@ -47,7 +47,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src = 'https://imgur.com/a/8DHsn6t' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+[Video Walkthrough](./twitter_rep_rec_AdobeExpress.gif)
 
 ## Notes
 
