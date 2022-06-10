@@ -38,7 +38,7 @@ public class ComposeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // change entire background color
+        // change entire background color to dark
         getWindow().getDecorView().setBackgroundColor(Color.parseColor("#161618"));
 
         super.onCreate(savedInstanceState);
