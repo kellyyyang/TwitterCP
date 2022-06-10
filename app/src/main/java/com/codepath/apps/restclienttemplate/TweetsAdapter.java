@@ -28,7 +28,6 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         this.tweets = tweets;
     }
 
-    // start: scroll
     // Clean all elements of the recycler
     public void clear() {
         tweets.clear();
@@ -40,8 +39,6 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         tweets.addAll(list);
         notifyDataSetChanged();
     }
-
-    // end
 
     // For each row, inflate the layout for a Tweet
     @NonNull
