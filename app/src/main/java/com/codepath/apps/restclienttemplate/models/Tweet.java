@@ -50,7 +50,6 @@ public class Tweet {
         } else {
             tweet.tweet_url = "none";
         }
-
         return tweet;
     }
 
