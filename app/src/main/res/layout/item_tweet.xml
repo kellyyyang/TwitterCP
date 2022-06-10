@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_margin="10dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvProfileImage"
@@ -81,7 +81,19 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@+id/ivMedia"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:background="#818181" />
+
+    <ImageButton
+        android:id="@+id/btnReply"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/ivMedia"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/cvProfileImage"
+        android:src="@drawable/chat_bubble"
+        tools:srcCompat="@tools:sample/avatars"
+        android:onClick="onReplyButton" />
 
 </RelativeLayout>

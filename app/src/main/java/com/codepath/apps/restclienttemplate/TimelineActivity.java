@@ -148,6 +148,21 @@ public class TimelineActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    // start: reply button
+    public void onReplyButton(View view) {
+
+        Integer position = 0;
+        Tweet tweet = tweets.get(position);
+
+        // navigate to Reply screen
+        Intent i = new Intent(this, ReplyActivity.class);
+        i.putExtra("user", Parcels.wrap(tweet.user.screenName));
+        Log.i(TAG, tweet.user.screenName.toString());
+        startActivity(i);
+    }
+
+    // end: reply button
+
     private void populateHomeTimeline() {
         client.getHomeTimeline(new JsonHttpResponseHandler() {
             @Override
